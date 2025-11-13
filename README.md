@@ -1,5 +1,9 @@
 # AeroJudge Score Results Kiosk
 
+
+# NOT FUNCTIONAL YET - FOUND AN ERROR WHILE TESTING
+
+
 A turnkey Raspberry Pi kiosk system for displaying live AeroJudge competition results at events. Automatically rotates between a splash screen and live results from your local Score server—no internet connection required.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
