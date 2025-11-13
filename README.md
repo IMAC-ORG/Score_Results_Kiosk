@@ -8,6 +8,12 @@ A turnkey Raspberry Pi kiosk system for displaying live AeroJudge competition re
 
 ---
 
+## Compatibility Notice
+
+**Important:** This kiosk software is currently compatible with **Score 4.70 only**. It is not yet compatible with Score 4.72.
+
+---
+
 ## What It Does
 
 This project transforms a Raspberry Pi into a dedicated results display that:
