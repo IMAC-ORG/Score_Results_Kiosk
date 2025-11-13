@@ -28,29 +28,29 @@ if ! grep -q 'VERSION_ID="12"' /etc/os-release; then
     fi
 fi
 
-echo "Step 1/8: Updating package list..."
+echo "Step 1/9: Updating package list..."
 sudo apt update
 
 echo ""
-echo "Step 2/8: Installing required packages..."
+echo "Step 2/9: Installing required packages..."
 sudo apt install -y wtype chromium-browser
 
 echo ""
-echo "Step 3/8: Creating splash screen folder and copying image..."
+echo "Step 3/9: Creating splash screen folder and copying image..."
 mkdir -p ~/splashv
 cp assets/splash/pisplash_v.png ~/splashv/splash.png
 
 echo ""
-echo "Step 4/8: Installing switchtab.sh script..."
+echo "Step 4/9: Installing switchtab.sh script..."
 cp bin/switchtab.sh ~/switchtab.sh
 chmod +x ~/switchtab.sh
 
 echo ""
-echo "Step 5/8: Hiding mouse cursor..."
+echo "Step 5/9: Hiding mouse cursor..."
 sudo mv /usr/share/icons/PiXflat/cursors/left_ptr /usr/share/icons/PiXflat/cursors/left_ptr.bak 2>/dev/null || echo "Cursor already hidden"
 
 echo ""
-echo "Step 6/8: Configuring Wayfire window manager..."
+echo "Step 6/9: Configuring Wayfire window manager..."
 mkdir -p ~/.config
 cat > ~/.config/wayfire.ini << 'EOF'
 [autostart]
@@ -77,7 +77,7 @@ plugins=autostart vswitch
 EOF
 
 echo ""
-echo "Step 7/8: Setting up auto-login..."
+echo "Step 7/9: Setting up auto-login..."
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 sudo tee /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null << EOF
 [Service]
@@ -86,9 +86,14 @@ ExecStart=-/sbin/agetty --autologin resultskiosk --noclear %I \$TERM
 EOF
 
 echo ""
-echo "Step 8/8: Setting Wayfire as default session..."
+echo "Step 8/9: Setting Wayfire as default session..."
 mkdir -p ~/.config/lxsession/LXDE-pi
 echo "@wayfire" > ~/.config/lxsession/LXDE-pi/autostart
+
+echo ""
+echo "Step 9/9: Configuring lightdm for Wayfire session..."
+sudo sed -i 's/^autologin-session=.*/autologin-session=LXDE-pi-wayfire/' /etc/lightdm/lightdm.conf
+sudo sed -i 's/^user-session=.*/user-session=LXDE-pi-wayfire/' /etc/lightdm/lightdm.conf
 
 echo ""
 echo "=========================================="
