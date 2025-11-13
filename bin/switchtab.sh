@@ -14,7 +14,7 @@ echo "Chromium browser process ID: $chromium_pid"
 
 export XDG_RUNTIME_DIR=/run/user/1000
 
-# Inital pause to avoid loop timing errors
+# Initial pause to avoid loop timing errors
 sleep 30
 
 # Loop to send keyboard events
