@@ -1,30 +1,48 @@
 # Changelog
 
-All notable changes to the Score Results Kiosk project will be documented in this file.
+All notable changes to the AeroJudge Score Results Kiosk project.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.0.0] - 2025-11-12
 
-## [1.0.0] - 2025-01-12
+### Initial Public Release
 
-### Added
-- Initial release of Score Results Kiosk
-- Two-step installation process using Raspberry Pi Imager + install script
-- Automatic rotation between splash screen and live results
-- Auto-refresh and auto-scroll functionality
-- Support for Raspberry Pi OS Bookworm (32-bit Legacy)
-- Detailed Pi Imager setup guide
-- Automated installer script
-- Portrait mode display support (270° rotation)
+**Features:**
+- Automated installer script (install.sh)
+- Splash screen rotation with live results
+- Portrait mode display (270° rotation)
+- Auto-refresh and scroll functionality
+- Local network-only operation (no internet required)
+- Zero-touch operation after setup
 
-### Documentation
-- Complete Pi Imager setup guide with step-by-step instructions
-- Installation guide for kiosk software setup
-- README with project overview and quick start
+**Components:**
+- Pi Imager setup guide
+- Installation guide with troubleshooting
+- switchtab.sh script for tab rotation
+- Wayfire configuration for kiosk mode
+- Auto-login and auto-start configuration
 
-### Features
-- Displays AeroJudge competition results from local Score server
-- No internet connection required (uses local WiFi network)
-- Automatic tab switching between splash and results
-- Automatic page refresh and scrolling
-- Headless operation with hidden mouse cursor
+**Tested On:**
+- Raspberry Pi 4 (2GB, 4GB, 8GB models)
+- Raspberry Pi OS Bookworm (Legacy, 32-bit)
+- Various HDMI displays (tested 720p-1080p)
+
+---
+
+## Pre-Release Version History
+
+### v4.0 (April 2025) - Pre-release
+- Switched to local Score server results
+- Added refresh and scroll automation
+- Improved timing cycle
+
+### v3.0 - Manual Configuration
+- Basic tab rotation
+- Multiple display support
+
+### v2.0 - Early Development
+- Initial web-based approach
+- Network storage testing
+
+### v1.0 - Proof of Concept
+- Basic kiosk mode setup
+- Manual configuration only
